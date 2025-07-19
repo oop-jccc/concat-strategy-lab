@@ -17,7 +17,7 @@ In the context of our application, we are implementing different strategies for 
 
 Constructor injection is used to inject the strategy into the service class (`GreetingService`) that uses it.
 
-![Strategy Pattern](Lab.png)
+![Strategy Pattern](StringConcatStrategyApp/lab.png)
 ## Instructions
 
 1. Open the provided Visual Studio solution.
