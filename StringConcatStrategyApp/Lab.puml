@@ -1,0 +1,55 @@
+@startuml
+hide empty members
+
+interface IStringConcatStrategy {
+    + string GenerateGreeting(Person person)
+}
+
+class Program {
+}
+
+class Person {
+    + string FirstName
+    + string LastName
+}
+
+class StringConcatStrategyFactory {
+    + static IStringConcatStrategy CreateStrategy(int choice)
+}
+
+class UserInputValidator {
+    + static bool IsValidChoice(string input, out int choice)
+}
+
+class PlusOperatorStrategy {
+    + string GenerateGreeting(Person person)
+}
+
+class StringBuilderStrategy {
+    + string GenerateGreeting(Person person)
+}
+
+class StringFormatStrategy {
+    + string GenerateGreeting(Person person)
+}
+
+class StringInterpolationStrategy {
+    + string GenerateGreeting(Person person)
+}
+
+class GreetingService {
+    - IStringConcatStrategy _strategy
+    + void DisplayGreeting(Person person)
+}
+
+Program ..> UserInputValidator : uses
+Program ..> StringConcatStrategyFactory : uses
+Program ..> GreetingService : uses
+
+PlusOperatorStrategy .up.|> IStringConcatStrategy
+StringBuilderStrategy .up.|> IStringConcatStrategy
+StringFormatStrategy .up.|> IStringConcatStrategy
+StringInterpolationStrategy .up.|> IStringConcatStrategy
+
+GreetingService ..> IStringConcatStrategy : uses
+@enduml
