@@ -23,6 +23,6 @@
     }
   },
   "forwardPorts": [],
-  "postCreateCommand": "dotnet restore StringConcatStrategyApp/StringConcatStrategyApp.csproj",
+  "postCreateCommand": "dotnet restore ./StringConcatStrategiesLab.sln",
   "remoteUser": "vscode"
 }
