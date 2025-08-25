@@ -27,6 +27,12 @@ public class StringBuilderStrategy : IStringConcatStrategy
     }
 }
 
-// TODO: Implement the StringFormatStrategy class that should concatenate a greeting message using string.Format.
+public class StringFormatStrategy : IStringConcatStrategy
+{
+    public string GenerateGreeting(Person person)
+    {
+        return string.Format("Hello, {0} {1}!", person.FirstName, person.LastName);
+    }
+}
 
 // TODO: Implement the StringInterpolationStrategy class that should concatenate a greeting message using string interpolation.
