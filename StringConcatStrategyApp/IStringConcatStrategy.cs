@@ -13,7 +13,19 @@ public class PlusOperatorStrategy : IStringConcatStrategy
     }
 }
 
-// TODO: Implement the StringBuilderStrategy class that should concatenate a greeting message using StringBuilder.
+public class StringBuilderStrategy : IStringConcatStrategy
+{
+    public string GenerateGreeting(Person person)
+    {
+        var sb = new System.Text.StringBuilder();
+        sb.Append("Hello, ");
+        sb.Append(person.FirstName);
+        sb.Append(" ");
+        sb.Append(person.LastName);
+        sb.Append("!");
+        return sb.ToString();
+    }
+}
 
 // TODO: Implement the StringFormatStrategy class that should concatenate a greeting message using string.Format.
 
