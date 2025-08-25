@@ -35,4 +35,10 @@ public class StringFormatStrategy : IStringConcatStrategy
     }
 }
 
-// TODO: Implement the StringInterpolationStrategy class that should concatenate a greeting message using string interpolation.
+public class StringInterpolationStrategy : IStringConcatStrategy
+{
+    public string GenerateGreeting(Person person)
+    {
+        return $"Hello, {person.FirstName} {person.LastName}!";
+    }
+}
