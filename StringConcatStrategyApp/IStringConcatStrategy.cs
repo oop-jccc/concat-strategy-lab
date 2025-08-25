@@ -2,7 +2,7 @@ namespace StringConcatStrategyApp;
 
 public interface IStringConcatStrategy
 {
-    // TODO: Define a method that generates a greeting string based on the provided Person object.
+    string GenerateGreeting(Person person);
 }
 
 public class PlusOperatorStrategy
