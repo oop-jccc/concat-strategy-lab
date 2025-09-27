@@ -2,7 +2,7 @@
   "name": ".NET Educational Development Environment",
   "image": "mcr.microsoft.com/devcontainers/dotnet:8.0",
   "hostRequirements": {
-    "cpus": 2,
+    "cpus": 4,
     "memory": "8gb"
   },
   "customizations": {
