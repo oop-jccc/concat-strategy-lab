@@ -1,28 +1,85 @@
 {
-  "name": ".NET High-Performance Environment",
+  "name": ".NET Educational Development Environment",
   "image": "mcr.microsoft.com/devcontainers/dotnet:8.0",
   "hostRequirements": {
-    "cpus": 4,
-    "memory": "16gb"
+    "cpus": 2,
+    "memory": "8gb"
   },
   "customizations": {
     "vscode": {
       "extensions": [
+        // Core .NET Development
         "ms-dotnettools.csdevkit",
-        "ms-dotnettools.csharp",
         "ms-dotnettools.vscode-dotnet-runtime",
-        "GitHub.copilot",
-        "GitHub.copilot-chat",
-        "septag.visual-assist-dark",
+
+        // Testing Support
+        "formulahendry.dotnet-test-explorer",
+        "hbenl.vscode-test-explorer",
+
+        // Code Quality & Formatting
+        "EditorConfig.EditorConfig",
         "jeff-hykin.better-c-sharp-syntax",
-        "icsharpcode.ilspy-vscode",
+
+        // Development Tools
         "patcx.vscode-nuget-gallery",
+        "icsharpcode.ilspy-vscode",
         "ryanluker.vscode-coverage-gutters",
-        "humao.rest-client"
-      ]
+
+        // Git & Version Control
+        "mhutchie.git-graph",
+        "eamodio.gitlens",
+
+        // File Support
+        "ms-vscode.vscode-json",
+        "redhat.vscode-xml",
+        "yzhang.markdown-all-in-one",
+
+        // Optional AI Assistance (can be removed if not desired)
+        "GitHub.copilot",
+        "GitHub.copilot-chat"
+      ],
+      "settings": {
+        // .NET specific settings
+        "dotnet.completion.showCompletionItemsFromUnimportedNamespaces": true,
+        "dotnet.inlayHints.enableInlayHintsForParameters": true,
+        "dotnet.inlayHints.enableInlayHintsForLiteralParameters": true,
+        "dotnet.inlayHints.enableInlayHintsForIndexerParameters": true,
+        "dotnet.inlayHints.enableInlayHintsForObjectCreationParameters": true,
+        "dotnet.inlayHints.enableInlayHintsForOtherParameters": true,
+        "dotnet.inlayHints.enableInlayHintsForTypes": true,
+        "dotnet.inlayHints.enableInlayHintsForImplicitVariableTypes": true,
+        "dotnet.inlayHints.enableInlayHintsForImplicitObjectCreation": true,
+
+        // Test Explorer settings
+        "testExplorer.useNativeTesting": true,
+        "dotnet-test-explorer.testProjectPath": "**/*Tests.csproj",
+
+        // Editor settings for better coding experience
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true,
+        "editor.codeActionsOnSave": {
+          "source.fixAll": "explicit",
+          "source.organizeImports": "explicit"
+        },
+
+        // File associations
+        "files.associations": {
+          "*.csproj": "xml",
+          "*.props": "xml",
+          "*.targets": "xml"
+        },
+
+        // Terminal settings
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "terminal.integrated.profiles.linux": {
+          "bash": {
+            "path": "/bin/bash"
+          }
+        }
+      }
     }
   },
   "forwardPorts": [],
-  "postCreateCommand": "dotnet restore StringConcatStrategyApp/StringConcatStrategyApp.csproj",
+  "postCreateCommand": "dotnet restore StringConcatStrategiesLab.sln && dotnet build StringConcatStrategiesLab.sln",
   "remoteUser": "vscode"
 }
